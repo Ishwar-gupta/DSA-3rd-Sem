@@ -1,5 +1,5 @@
 
-
+/*
 #include <stdio.h>
 
 typedef struct complex {
@@ -37,7 +37,7 @@ int main() {
 
     return 0;
 
-}  
+}
 #include<stdio.h>
 #include<string.h>
 
@@ -80,23 +80,46 @@ printf("%-20s | %-10.2f|",emp[highest_salary].name,emp[highest_salary].salary);
 
 return 0;
 }
+*/
+#include <stdio.h>
 
+struct employee {
+    char name[50];
+    int age;
+    char gender;
+    float salary;
+};
 
+int main() {
+    struct employee e[3];
+    int i;
 
+    for (i = 0; i < 3; i++) {
+        printf("\nEnter details of employee %d\n", i + 1);
 
+        printf("Name: ");
+        scanf("%s", e[i].name);
 
+        printf("Age: ");
+        scanf("%d", &e[i].age);
 
+        printf("Gender (M/F): ");
+        scanf(" %c", &e[i].gender);   // ✅ FIXED
 
+        printf("Salary: ");
+        scanf("%f", &e[i].salary);
+    }
+    printf("\n ***********************************\n")
+    printf("\nMale employees with salary > 50000:\n");
 
+    for (i = 0; i < 3; i++) {
+        if ((e[i].gender == 'M' || e[i].gender == 'm') && e[i].salary > 50000) {
+            printf("\nName: %s", e[i].name);
+            printf("\nAge: %d", e[i].age);
+            printf("\nGender: %c", e[i].gender);
+            printf("\nSalary: %.2f\n", e[i].salary);
+        }
+    }
 
-
-
-
-
-
-
-
-
-
-
-
+    return 0;
+}
